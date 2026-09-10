@@ -1,0 +1,20 @@
+spec_version: v1
+kind: native
+
+name: my_agent
+description: A simple agent that performs tasks using tools
+
+instructions: >
+  You are a helpful AI assistant.
+  Use available tools when needed.
+  Be concise and accurate.
+  When the user gives a name or asks for a greeting, call the my_tool tool.
+
+llm: groq/openai/gpt-oss-120b
+
+style: react
+
+collaborators: []
+
+tools:
+  - my_tool
