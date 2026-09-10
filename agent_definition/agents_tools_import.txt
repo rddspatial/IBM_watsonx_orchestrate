@@ -1,0 +1,3 @@
+orchestrate tools import -k python -f <path of the tools.py>
+
+orchestrate agents import -f <path of the agent.yaml>
