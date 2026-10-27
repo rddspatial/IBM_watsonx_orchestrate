@@ -1,4 +1,4 @@
-# wxO agent trace monitor
+# Watsonx Orchestrate Agent Trace Monitor
 
 A guide to the `wxo_traces.py` script shared in this conversation.
 
