@@ -408,4 +408,4 @@ Group stored records by `conversation_id`, sort by `timestamp`, then display `qu
 | Trace disappears from file | It may have aged out of the rolling window, failed detail retrieval, or been omitted by a capped scan |
 | API key changed in CSV but not used | Restart; the CSV is read once at startup |
 
-When sharing diagnostics, remove API keys, tokens and sensitive conversation/tool content. Retain field names and structural shape so extraction can be corrected.
+
