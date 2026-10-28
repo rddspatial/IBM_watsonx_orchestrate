@@ -1,0 +1,61 @@
+1. First create a connection for openrouter credential
+
+orchestrate connections add -a openrouter_credentials
+
+2. Register the connection to wxo environment
+
+orchestrate connections configure \
+  -a openrouter_credentials \
+  --env draft \
+  -k key_value \
+  -t team
+
+3. Set credential
+
+orchestrate connections set-credentials \
+  -a openrouter_credentials \
+  --env draft \
+  -e "api_key=OPENROUTER_API_KEY"
+
+
+4. Create a openrouter yaml file (openrouter-model.yaml)
+
+spec_version: v1
+kind: model
+name: openrouter/openrouter/free
+display_name: OpenRouter Free Router
+description: Free model routing through OpenRouter.
+model_type: chat
+provider_config: {}
+
+
+5. Import the openrouter model to wxo env
+
+orchestrate models import \
+  --file openrouter-model.yaml \
+  --app-id openrouter_credentials
+
+6. Create wxo agent powered by openrouter models (openrouter-agent.yaml)
+
+spec_version: v1
+kind: native
+name: openrouter_test_agent
+description: A simple assistant using OpenRouter free models.
+
+llm: openrouter/openrouter/free
+
+llm_config:
+  max_tokens: 1024
+
+style: react_core
+
+instructions: |
+  You are a helpful assistant.
+  Answer questions clearly and concisely.
+  If you do not know an answer, say so.
+
+tools: []
+
+7. Import the model 
+
+orchestrate agents import -f openrouter-agent.yaml
